@@ -1,0 +1,23 @@
+﻿@model WebUI.Models.ProductListViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <table>
+        <tr>
+            <td>Ürün Adı</td>
+            <td>Ürün Birim Fiyatı</td>
+            <td>Stok Adeti</td>
+        </tr>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.ProductName</td>
+                <td>@product.UnitPrice</td>
+                <td>@product.UnitsInStock</td>
+            </tr>
+        }
+    </table>
+
