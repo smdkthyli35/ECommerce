@@ -1,9 +1,17 @@
 ﻿@model WebUI.Models.CategoryListViewModel
 
-<div class="list-group">
+<ul class="list-group">
     @foreach (var category in Model.Categories)
     {
-        <a href="#" class="list-group-item">@category.CategoryName</a>
+        var css = "list-group-item";
+        if (category.CategoryId==Model.CurrentCategory)
+        {
+            css += " active";
+        }
+
+        <li class="list-group-item">
+            <a href="/product/index?category=@category.CategoryId" class="@css">@category.CategoryName</a>
+        </li>
     }
-</div>
+</ul>
 
