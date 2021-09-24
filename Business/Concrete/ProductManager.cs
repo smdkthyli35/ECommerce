@@ -23,9 +23,9 @@ namespace Business.Concrete
             _productDal.Add(product);
         }
 
-        public void Delete(int productId)
+        public void Delete(Product product)
         {
-           // _productDal.Delete(productId);
+            _productDal.Delete(product);
         }
 
         public List<Product> GetAll()
