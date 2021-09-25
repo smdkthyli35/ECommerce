@@ -33,7 +33,11 @@ namespace WebUI
 
             services.AddSingleton<ICategoryService, CategoryManager>();
             services.AddSingleton<ICategoryDal, EfCategoryDal>();
+
+            services.AddSession();
+            services.AddDistributedMemoryCache();
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -54,6 +58,8 @@ namespace WebUI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
